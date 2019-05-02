@@ -6,14 +6,25 @@ public class MyHeap{
     data[i2] = curr;
   }
 
-  private static void pushDown(int[]data, int size, int index){
-     /*
-     -size  is the number of elements in the data array.
-     - push the element at index i downward into the correct position. This will swap with the larger of the child nodes provided thatchild is larger. This stops when a leaf is reached, or neither child is larger. [ should be O(logn) ]
-     - precondition: index is between 0 and size-1 inclusive
-     - precondition: size is between 0 and data.length-1 inclusive.
-     */
-   }
+  private static void pushDown(int[]data, int size,int index){
+		int parent = data[index];
+    newind=index*2+1;
+		int left = newind;
+		int right = newind+1;
+		if (right >= size && left < size && parent < data[left]){
+			swap(data, left, index);
+		}
+		else if (right < size && (parent < data[left] || parent < data[right])){
+			if (data[left] >= data[right]){
+				swap(data, index, left);
+				pushDown(data, size, left);
+			}
+			else{
+				swap(data, index, right);
+				pushDown(data,size,right);
+			}
+		}
+	}
 
   private static void pushUp(int[]data,int index){
     /*
@@ -22,10 +33,7 @@ public class MyHeap{
      */
    }
 
-  public static void heapify(int[]){
-    /*
-    - convert the array into a valid heap. [ should be O(n) ]
-    */
+
 
   public static void heapsort(int[]){
     /*
