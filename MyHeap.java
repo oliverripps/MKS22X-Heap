@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class MyHeap{
 
   private static void swap(int[] data, int i1, int i2) {
@@ -8,7 +10,7 @@ public class MyHeap{
 
   private static void pushDown(int[]data, int size,int index){
 		int parent = data[index];
-    newind=index*2+1;
+    int newind=index*2+1;
 		int left = newind;
 		int right = newind+1;
 		if (right >= size && left < size && parent < data[left]){
@@ -53,5 +55,4 @@ public class MyHeap{
     }
 
 
-  
 }
