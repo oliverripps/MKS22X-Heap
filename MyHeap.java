@@ -1,5 +1,12 @@
 public class MyHeap{
-  private static void pushDown(int[]data,int size,int index){
+
+  private static void swap(int[] data, int i1, int i2) {
+    int curr = data[i1];
+    data[i1] = data[i2];
+    data[i2] = curr;
+  }
+
+  private static void pushDown(int[]data, int size, int index){
      /*
      -size  is the number of elements in the data array.
      - push the element at index i downward into the correct position. This will swap with the larger of the child nodes provided thatchild is larger. This stops when a leaf is reached, or neither child is larger. [ should be O(logn) ]
@@ -27,4 +34,5 @@ public class MyHeap{
      removing the largest value n-1 times (remove places at end of the sub-array).
    */
 
- }}
+ }
+}
