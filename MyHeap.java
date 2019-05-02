@@ -26,6 +26,11 @@ public class MyHeap{
 		}
 	}
 
+  public static void heapify(int[] nums){
+      for (int i = nums.length-1; i >= 0; i--) {
+        pushDown(nums,nums.length, i);
+      }
+    }
   private static void pushUp(int[]data,int index){
     int i = (index-1)/2;
     if (data[i] > data[index] || index == 0 ){
@@ -39,12 +44,14 @@ public class MyHeap{
 
 
 
-  public static void heapsort(int[]){
-    /*
-    - sort the array [ should be O(nlogn) ] :
-     converting it into a heap
-     removing the largest value n-1 times (remove places at end of the sub-array).
-   */
+  public static void heapsort(int[] nums){
+      heapify(nums);
+      for (int i = nums.length-1; i > 0; i--) {
+        swap(nums, 0, i);
+        pushDown(nums, i, 0);
+      }
+    }
 
- }
+
+  
 }
